@@ -1,0 +1,13 @@
+### IntelliJ IDEA files
+.idea
+*.iml
+
+### Maven template
+target/
+/.sonar
+/src/main/java/com/infopuls/tash/templ/test
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
