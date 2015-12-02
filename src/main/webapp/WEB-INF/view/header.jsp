@@ -1,6 +1,7 @@
+<jsp:useBean id="user" class="model.UserBean" scope="application"/>
 <div id="header">
     <div id="SlowNews">
-        <h1>Slooooow News</h1>
+        <h1>Slow News</h1>
     </div>
     <div id="userMail">
         <h3>${curUserBean.user}

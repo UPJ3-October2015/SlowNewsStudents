@@ -11,20 +11,25 @@
 <head>
     <meta charset="utf-8">
     <title>SLOW NEWS</title>
-    <link rel="stylesheet" href="main.css">
+    <link href="../../../css/main.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
-<%@ include file="header.jsp" %>
-<%@ include file="sidebar.jsp" %>
+
+<%@ include file="view/header.jsp" %>
+<%@ include file="view/sidebar.jsp" %>
+
 <div id="content">
 
     <h2>Welcome to SlowNews!!!</h2><br/>
 
-    <h3>Login to read latest news</h3>
+    <h2>Login to read latest news</h2>
 
-    <h3>or registration now !!!</h3>
+    <h2>... or registration now !!!</h2>
+
 </div>
-<div id="footer">&copy; Vova</div>
+
+<%@ include file="view/footer.jsp" %>
+
 </body>
 </html>

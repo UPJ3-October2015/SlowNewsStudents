@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Error Registration</title>
-    <link rel="stylesheet" href="main.css">
+    <link href="../../../css/main.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
@@ -13,8 +13,8 @@
 
 <div id="content">
 
-    <h2>Registration Success!!!</h2><br/>
-    <jsp:useBean id="user" class="servlets.UserBean" scope="application"/>
+    <h2>Login Success!!!</h2><br/>
+
     <p>Login: <%= user.getUser()%>
     </p>
 
@@ -25,8 +25,7 @@
     </p>
 
 </div>
-<div id="footer">&copy; Vova</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
-
 

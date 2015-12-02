@@ -1,11 +1,11 @@
-<jsp:useBean id="curUserBean" scope="session" type="servlets.UserBean" class="servlets.UserBean"/>
+<jsp:useBean id="curUserBean" scope="session" type="model.UserBean" class="model.UserBean"/>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>SLOW NEWS</title>
-    <link rel="stylesheet" href="main.css">
+    <link href="../../../css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -34,6 +34,6 @@
 
     </form>
 </div>
-<div id="footer">&copy; Vova</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

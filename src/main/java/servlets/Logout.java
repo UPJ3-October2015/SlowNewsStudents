@@ -19,7 +19,7 @@ public class Logout extends Dispatcher {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession();
         session.invalidate();
-        this.forward("/registration.jsp", request, response);
+        this.forward("/WEB-INF/view/registration.jsp", request, response);
 
 
     }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Error Registration</title>
-    <link rel="stylesheet" href="main.css">
+    <link href="../../../css/main.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body>
@@ -16,6 +16,6 @@
 
     <h2>User already exist, or invalid user's data !</h2><br/>
 </div>
-<div id="footer">&copy; Vova</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

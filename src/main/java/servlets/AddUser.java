@@ -1,18 +1,15 @@
 package servlets;
 
+import model.UserBean;
+import model.UserList;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by voldem on 17.11.2015.
- */
 public class AddUser extends Dispatcher {
-    public String getServletInfo() {
-        return "Add user servlet";
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,15 +24,16 @@ public class AddUser extends Dispatcher {
             newUser.setUser(user);
             newUser.setPassword(password);
             newUser.setEmail(email);
-            context.setAttribute("user", newUser);
+
             boolean res = UserList.addUser(newUser);
             if (res) {
-                this.forward("/successRegistration.jsp", request, response);
+                context.setAttribute("user", newUser);
+                this.forward("/signIn", request, response);
             } else {
-                this.forward("/errorRegistration.jsp", request, response);
+                this.forward("/WEB-INF/view/errorRegistration.jsp", request, response);
             }
         } else {
-            this.forward("/errorRegistration.jsp", request, response);
+            this.forward("/WEB-INF/view/errorRegistration.jsp", request, response);
         }
     }
 }

@@ -12,6 +12,10 @@
         <servlet-class>servlets.CheckUser</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>Start</servlet-name>
+        <servlet-class>servlets.Start</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Registration</servlet-name>
         <servlet-class>servlets.Registration</servlet-class>
     </servlet>
@@ -21,16 +25,17 @@
     </servlet>
     <servlet>
         <servlet-name>UserBean</servlet-name>
-        <servlet-class>servlets.UserBean</servlet-class>
+        <servlet-class>model.UserBean</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserList</servlet-name>
-        <servlet-class>servlets.UserList</servlet-class>
+        <servlet-class>model.UserList</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>servlets.Logout</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Dispatcher</servlet-name>
         <url-pattern>/main.java.servlets.Dispatcher</url-pattern>
@@ -48,13 +53,17 @@
         <url-pattern>/AddUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UserBean</servlet-name>
-        <url-pattern>/UserBean</url-pattern>
+        <servlet-name>Start</servlet-name>
+        <url-pattern>/Start</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UserList</servlet-name>
-        <url-pattern>/UserList</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>UserBean</servlet-name>-->
+        <!--<url-pattern>/UserBean</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>UserList</servlet-name>-->
+        <!--<url-pattern>/UserList</url-pattern>-->
+    <!--</servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
@@ -62,7 +71,12 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    <!--<welcome-file-list>-->
+        <!--<welcome-file>*</welcome-file>-->
+        <!--<welcome-file>index.jsp</welcome-file>-->
+    <!--</welcome-file-list>-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
 </web-app>

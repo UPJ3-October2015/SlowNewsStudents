@@ -1,4 +1,4 @@
-package servlets;
+package model;
 
 /**
  * Created by voldem on 17.11.2015.
