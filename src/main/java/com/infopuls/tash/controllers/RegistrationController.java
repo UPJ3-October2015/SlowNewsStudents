@@ -43,7 +43,10 @@ public class RegistrationController  extends HttpServlet {
         if (login == null || password == null || confirm_password == null || first_name == null) {
             userPath = "/registration";
             request.setAttribute("errorText", "It is necessary to fill fields");
-        } else {
+        }else if (!password.equals(confirm_password)){
+            userPath = "/registration";
+            request.setAttribute("errorText", "Password does not match with confirm password");
+        }else {
 
             if (map.isExistLogin(login)) {
                 userPath = "/registration";

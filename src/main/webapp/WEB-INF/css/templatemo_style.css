@@ -254,3 +254,7 @@ iframe { border: none; }
 .top-menu-a:hover {
 	color: #fff; /* Цвет ссылки при наведении на нее курсора мыши */
 }
+.leftimg {
+	float:left; /* Выравнивание по левому краю */
+	margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+}

@@ -27,9 +27,9 @@
                 <h2>
                   <c:out value="${list.title}"/>
                 </h2>
-
-                <img src="${list.imagePath}" alt="" class="img-thumbnail">
-
+                <c:if test="${list.imagePath != null}">
+                  <img src="${list.imagePath}" alt="" class="img-thumbnail leftimg">
+                </c:if>
                 <c:out value="${list.description}"/>
                 <br/><a href="${list.link}" target="_blank">... more</a>
               </article>
