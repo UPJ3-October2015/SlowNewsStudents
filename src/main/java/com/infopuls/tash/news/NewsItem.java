@@ -1,21 +1,20 @@
 package com.infopuls.tash.news;
 
+import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
 import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 
-import javax.ws.rs.client.ClientBuilder;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.io.ByteArrayInputStream;
+import javax.xml.bind.annotation.*;
 import java.io.File;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 @XmlRootElement(name="item")
 public class NewsItem {
@@ -35,12 +34,11 @@ public class NewsItem {
     @XmlPath("pubDate/text()")
     private Date createdDate;
 
-    @XmlPath("media/@url")// /root/@id/text()
+    @XmlAnyElement
+    private List<ElementNSImpl> elements;
+
     private String imagePath;
-
-
     private String author;
-    private File image;
     private String source;
 
     public NewsItem() {
@@ -116,14 +114,13 @@ public class NewsItem {
         this.link = link;
     }
 
-    public File getImage() {
-        return image;
+    public List<ElementNSImpl> getElements() {
+        return elements;
     }
 
-    public void setImage(File image) {
-        this.image = image;
+    public void setElements(List<ElementNSImpl> elements) {
+        this.elements = elements;
     }
-
 
     public List <NewsItem>  getNewsList() {
         List<NewsItem> newsItemList = null;
@@ -144,14 +141,19 @@ public class NewsItem {
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
             channel = (Channel) unmarshaller.unmarshal(rss);
-            System.out.println(channel.toString());
             for ( NewsItem item : channel.getItems() ){
-                System.out.println(item.toString());
+                String imagepath = null;
+                for ( ElementNSImpl elementNSImpl : item.getElements() ){
+                    imagepath =  (imagepath == null || imagepath.equals("") ) ? elementNSImpl.getAttribute("url") : imagepath;
+                    if (imagepath !=null && !imagepath.equals("") ){
+                        item.setImagePath(imagepath);
+                    }
+                }
             }
-
-            Marshaller marshaller = context.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshaller.marshal(channel, System.out);
+//
+//            Marshaller marshaller = context.createMarshaller();
+//            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+//            marshaller.marshal(channel, System.out);
 
         } catch (Exception e) {
             e.printStackTrace();

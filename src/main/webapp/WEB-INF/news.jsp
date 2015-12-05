@@ -31,7 +31,7 @@
                 <img src="${list.imagePath}" alt="" class="img-thumbnail">
 
                 <c:out value="${list.description}"/>
-                <a href="${list.link}" target="_blank">... more</a>
+                <br/><a href="${list.link}" target="_blank">... more</a>
               </article>
             </c:forEach>
           </form>

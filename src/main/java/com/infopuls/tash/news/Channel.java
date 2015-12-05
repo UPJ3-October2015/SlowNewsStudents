@@ -3,7 +3,6 @@ package com.infopuls.tash.news;
 import org.eclipse.persistence.oxm.annotations.XmlPath;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import java.net.URL;
 import java.util.List;
 
 

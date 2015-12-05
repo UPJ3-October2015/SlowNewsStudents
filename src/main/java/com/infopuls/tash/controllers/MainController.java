@@ -1,6 +1,5 @@
 package com.infopuls.tash.controllers;
 
-import com.infopuls.tash.user.User;
 import com.infopuls.tash.user.UsersMap;
 import com.infopuls.tash.ws.Weather;
 
@@ -8,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 
 @WebServlet (name="MainController", urlPatterns={"/" , "/logout"})
