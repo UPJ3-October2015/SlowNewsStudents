@@ -1,3 +1,5 @@
+package slownews.test;
+
 import java.util.ArrayList;
 
 /**
