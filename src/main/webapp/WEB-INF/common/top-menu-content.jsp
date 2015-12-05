@@ -10,12 +10,11 @@
       <h1 class="logo-left">Slow</h1>
       <div class="top-menu-left">
         ${weather.temperatureC} °C
-      </div>
-      <div class="top-menu-left">
+      <%--</div>--%>
+      <%--<div class="top-menu-left">--%>
         <lable id="countNewNews"></lable> newsItem appeared since last page update
       </div>
-
-
+      <div class="top-menu-left" id="lastnews"></div>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg logo-right-container">
     <h1 class="logo-right">News</h1>

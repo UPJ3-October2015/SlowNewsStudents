@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<jsp:useBean id="newsItem" scope="application" class="com.infopuls.tash.news.NewsItem" />
+<%--<jsp:useBean id="newsItem" scope="application" class="com.infopuls.tash.news.NewsItem" />--%>
+<jsp:useBean id="newsList" scope="application" class="com.infopuls.tash.news.NewsItemsCollection" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -22,7 +23,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-12">
           <form action="#" method="post">
-            <c:forEach items="${newsItem.newsList}" var="list">
+            <c:forEach items="${newsList.newsList}" var="list">
               <article>
                 <h2>
                   <c:out value="${list.title}"/>
