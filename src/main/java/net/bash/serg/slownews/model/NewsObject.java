@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @XmlRootElement(name="rss")
 @XmlType(propOrder={"category", "title", "image", "link", "description"})
 @XmlAccessorType(XmlAccessType.FIELD)
-public class News {
+public class NewsObject {
 
      @XmlPath("channel/item/category/text()")
      private ArrayList <String> category;

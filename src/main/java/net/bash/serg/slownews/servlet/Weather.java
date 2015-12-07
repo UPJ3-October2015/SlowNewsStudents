@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Created by Serg Bash on 12/2/2015.
  */
-@WebServlet("/news")
+@WebServlet("/weather")
 public class Weather extends HttpServlet{
     private static final String BEGIN = "/WEB-INF/view/weather.jsp";
     @Override
@@ -24,7 +24,7 @@ public class Weather extends HttpServlet{
         ServletContext application = getServletContext();
         HttpSession session = req.getSession();
         WeatherClientParser client = new WeatherClientParser();
-        session.setAttribute("news", client.getResult());
+        session.setAttribute("weather", client.getResult());
         RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
         dispatcher.forward(req, res);
     }

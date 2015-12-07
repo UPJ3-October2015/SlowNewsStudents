@@ -1,4 +1,5 @@
 package net.bash.serg.slownews.servlet;
+
 import net.bash.serg.slownews.model.NewsObject;
 import org.eclipse.persistence.jaxb.JAXBContextFactory;
 
@@ -18,44 +19,33 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
- * Created by bso05702 on 18.11.2015.
+ * Created by Serg Bash on 12/7/2015.
  */
-@WebServlet("/news")
-public class News extends HttpServlet{
-    private static final String BEGIN = "/WEB-INF/view/news.jsp";
+@WebServlet("/popupMessage")
+public class PopupMessage extends HttpServlet{
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        ServletContext application = getServletContext();
-        RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
         try {
             JAXBContext context = JAXBContextFactory.createContext(new Class[]{NewsObject.class}, null);
 
             Unmarshaller unmarshaller = context.createUnmarshaller();
             URL xmlURL = new URL("https://news.mail.ru/rss/ukraine/");
             InputStream xml = xmlURL.openStream();
-
             NewsObject newsObject = (NewsObject) unmarshaller.unmarshal(xml);
-
-            ArrayList list = new ArrayList();
-            for(int i = 0; i < newsObject.getImage().size(); i++) {
-                Map items = new HashMap();
-                items.put("category", newsObject.getCategory().get(i));
-                items.put("title", newsObject.getTitle().get(i));
-                items.put("description", newsObject.getDescription().get(i));
-                items.put("image", newsObject.getImage().get(i));
-                items.put("link", newsObject.getLink().get(i));
-                list.add(items);
-            }
-             xml.close();
-            ServletContext  servletContext = getServletContext();
-            servletContext.setAttribute("list", list);
+            res.setContentType("text/html;charset=UTF-8");
+            int size = newsObject.getTitle().size() - 1;
+            Random random = new Random();
+            int randomNum = random.nextInt((size - 0) + 1) + 0;
+            res.getWriter().print(newsObject.getTitle().get(randomNum));
+            xml.close();
         }
         catch(JAXBException e){
-             System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
-        dispatcher.forward(req, res);
     }
 }

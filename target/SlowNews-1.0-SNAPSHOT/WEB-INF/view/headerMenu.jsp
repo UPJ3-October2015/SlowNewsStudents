@@ -12,7 +12,7 @@
 <script type="text/javascript">
 
   function checkNews(){
-    var random = Math.random() * (99 - 1) + 1;
+    var random = Math.random() * (10 - 1) + 1;
     function nested() {
       if ( typeof nested.counter == 'undefined' ) {
         nested.counter = random;
@@ -23,15 +23,41 @@
     setInterval(nested, Math.random() * (random - 1) + 1);
     }
 
+  function startPopup(){
+  /*  function load(){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if(xhttp.readyState == 4 && xhttp.status == 200) {
+          document.getElementById("popup").innerHTML = xhttp.responseText;
+        }
+      };
+      xhttp.open("GET","popupMessage",true);
+      xhttp.send();
+      }
+     setInterval(load, 1000);
+    }*/
+
+    function load() {
+      $.ajax({
+        type: "GET",
+        url: "popupMessage",
+        success: function (msg) {
+          document.getElementById("popup").innerHTML = msg;
+        }
+      });
+    }
+    setInterval(load, 1000);
+  }
 
 </script>
-<body onload="checkNews()">
+<body onload="checkNews(), startPopup()">
 <div id="templatemo_header">
   <div id="site_title">
     <h1><a href="http://github.com/basoy">by Serg Bash</a></h1>
   </div>
   <div id="templatemo_search">
     с последнего обновления страницы появилось <a href="NewsServlet" id="countNews"></a> новостей
+    <div id="popup"></div>
     <form action="#" method="get">
       <input type="text" value="Search" name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
       <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" class="sub_btn"  /><br><br>
@@ -55,6 +81,7 @@
     <li><a href="news">News</a></li>
     <li><a href="registration">Registration</a></li>
     <li><a href="archive">Archive</a></li>
+    <li><a href="weather">Weather</a></li>
     <li><a href="about">About</a>
       <ul>
         <li><a href="http://github.com/basoy/page/1">Me</a></li>

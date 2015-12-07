@@ -19,7 +19,7 @@
             <div class="col_b float_r">
                 <img src="/images/templatemo_image_12.png" alt="Image 12" class="image_frame_300" />
                 <div class="post_text">
-                    <p>${news}</p>
+                    <p>${weather}</p>
                     <a href="BlogpostServlet" class="more">More</a>
                 </div>
             </div>
