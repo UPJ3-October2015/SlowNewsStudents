@@ -32,7 +32,6 @@ public class PopupMessage extends HttpServlet{
             throws ServletException, IOException {
         try {
             JAXBContext context = JAXBContextFactory.createContext(new Class[]{NewsObject.class}, null);
-
             Unmarshaller unmarshaller = context.createUnmarshaller();
             URL xmlURL = new URL("https://news.mail.ru/rss/ukraine/");
             InputStream xml = xmlURL.openStream();
