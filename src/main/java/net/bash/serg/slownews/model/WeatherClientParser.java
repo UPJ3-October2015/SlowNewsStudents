@@ -14,13 +14,16 @@ import com.sun.jersey.api.client.WebResource;
 
 public class WeatherClientParser {
     private String result;
-   public WeatherClientParser(){
+    private static final String WEBRESOURCE =
+            "http://api.openweathermap.org/data/2.5/weather?q=Kiev&appid=2de143494c0b295cca9337e1e96b00e0";
+
+    public WeatherClientParser(){
            try {
 
                Client client =  Client.create();
 
                WebResource webResource = client
-                       .resource("http://api.openweathermap.org/data/2.5/weather?q=Kiev&appid=2de143494c0b295cca9337e1e96b00e0");
+                       .resource(WEBRESOURCE);
 
                ClientResponse response = webResource.accept("application/json")
                        .get(ClientResponse.class);
@@ -31,9 +34,6 @@ public class WeatherClientParser {
                }
 
                String output = response.getEntity(String.class);
-
-               WeatherClientMapper weatherClientMapper = new WeatherClientMapper(output);
-
                JsonFactory factory = new JsonFactory();
                JsonParser parser  = factory.createParser(output);
 
@@ -43,9 +43,7 @@ public class WeatherClientParser {
 
                    if(JsonToken.FIELD_NAME.equals(jsonToken)){
                        String fieldName = parser.getCurrentName();
-                       System.out.println(fieldName);
                        jsonToken = parser.nextToken();
-                       System.out.println(parser.getValueAsString());
 
                        if("base".equals(fieldName)){
                            weather.setBase(parser.getValueAsString());
@@ -58,9 +56,7 @@ public class WeatherClientParser {
                setResult("Synopticks in "+ weather.getBase() + " of " + weather.getName() + " city is silent...");
 
            } catch (Exception e) {
-
                e.printStackTrace();
-
            }
        }
 
