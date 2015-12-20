@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Created by Serg Bash on 12/2/2015.
  */
-@WebServlet("/news")
+@WebServlet("/weather")
 public class Weather extends HttpServlet{
     private static final String BEGIN = "/WEB-INF/view/weather.jsp";
     @Override
