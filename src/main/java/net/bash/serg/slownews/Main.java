@@ -1,35 +1,27 @@
 package net.bash.serg.slownews;
 
 import net.bash.serg.slownews.model.User;
+import net.bash.serg.slownews.persistence.interfaces.SlowNewsEntity;
+import net.bash.serg.slownews.persistence.model.News;
+import net.bash.serg.slownews.persistence.model.Users;
+import net.bash.serg.slownews.persistence.utils.EntityCreator;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import java.util.List;
 
 /**
  * Created by Serg Bash on 12/20/2015.
  */
 public class Main {
-    public static  void main(String [] args){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persistence-unit_demo");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        try {
+    public static  void main(String [] args) {
 
-        transaction.begin();
-
-        User user1 = new User("Serg", "1", "basoy1988@mail.ru");
-        entityManager.persist(user1);
-        transaction.commit();
-
-        } catch (Exception ex){
-            System.out.println(ex.getMessage());
-            transaction.rollback();
-        }
-        finally
-        {
-            entityManager.close();
-        }
+       //Users user1 = new Users("Serg", "1", "basoy1988@mail.ru");
+       // News news = new News("test description3", "test category", "test title", "no url", "no link");
+        EntityCreator entityCreator = new EntityCreator();
+       // entityCreator.insertData(user1);
+        List <SlowNewsEntity> newsList = entityCreator.viewData("SELECT news FROM News news");
+        List <SlowNewsEntity> usersList = entityCreator.viewData("SELECT users FROM Users users");
+        System.out.println(newsList.get(0));
+        System.out.println(usersList.get(0));
+        entityCreator.close();
     }
 }
