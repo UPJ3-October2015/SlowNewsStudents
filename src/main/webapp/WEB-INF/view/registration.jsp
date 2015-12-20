@@ -9,7 +9,7 @@
     <div id="templatemo_main">
     	<h1>Registration new user</h1>
             <div id="contact_form">
-                <form method="post" name="contact" action="RegistrationServlet" onsubmit="return checkPasswords()">
+                <form method="post" name="contact" action="registration" onsubmit="return checkPasswords()">
                         
                         <label for="login">Login:</label> <input type="text" id="login" name="login" class="required input_field" required />
                         <div class="cleaner h10"></div>
