@@ -1,6 +1,6 @@
 package net.bash.serg.slownews.servlet;
 
-
+/*
 
 import net.bash.serg.slownews.model.User;
 
@@ -70,3 +70,4 @@ public class Login extends HttpServlet {
         dispatcher.forward(req, res);
     }
 }
+*/

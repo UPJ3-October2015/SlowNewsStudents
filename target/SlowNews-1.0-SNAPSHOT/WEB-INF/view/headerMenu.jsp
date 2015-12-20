@@ -55,6 +55,7 @@
     <li><a href="news">News</a></li>
     <li><a href="registration">Registration</a></li>
     <li><a href="archive">Archive</a></li>
+    <li><a href="weather">Weather</a></li>
     <li><a href="about">About</a>
       <ul>
         <li><a href="http://github.com/basoy/page/1">Me</a></li>
