@@ -30,7 +30,7 @@ public class RegistrationController  extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UsersMap map = UsersMap.getInstance();
+      //  UsersMap map = UsersMap.getInstance();
         String userPath = null;
 
         String login = request.getParameter("contact_login");
@@ -48,7 +48,8 @@ public class RegistrationController  extends HttpServlet {
             request.setAttribute("errorText", "Password does not match with confirm password");
         }else {
 
-            if (map.isExistLogin(login)) {
+            //if (map.isExistLogin(login)) {
+            if (User.findUserByLogin(login)!= null) {
                 userPath = "/registration";
                 request.setAttribute("errorText", "Unfortunately, this username is not available");
             } else {
@@ -58,7 +59,8 @@ public class RegistrationController  extends HttpServlet {
                 current_user.setLastName(last_name);
                 current_user.setPhoneNumber(phoneNumber);
 
-                map.addUser(current_user);
+                //map.addUser(current_user);
+                User.addUser(current_user);
                 request.getSession().setAttribute("user" ,current_user );
                 userPath = "/news";
             }

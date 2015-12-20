@@ -56,3 +56,22 @@ function lastNews() {
 
     setTimeout("lastNews()", 5000);
 }
+
+$(document).ready(function(){
+    $('#newButton').click(function(){
+        alert ('00')
+        sendData();
+    });
+});
+function sendData(){
+    var mge = $('#newText').val();
+    alert(mge);
+    $.ajax({
+        type: "POST",
+        url: "/lastNews",
+        data: { message : mge  }
+    }).done(function( msg ) {
+        alert( "Data Saved: " + msg );
+    });
+}
+

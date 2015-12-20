@@ -16,7 +16,7 @@ public class MainController extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) {
 
         String userPath = request.getServletPath();
-        UsersMap map = UsersMap.getInstance();
+       // UsersMap map = UsersMap.getInstance();
         request.getSession().setAttribute("weather" , new Weather().getCurrentWeather() );
         //request.getSession().setAttribute("weather" , new Weather(22.3) );
 

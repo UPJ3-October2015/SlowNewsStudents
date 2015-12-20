@@ -30,14 +30,16 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userPath = null;
-        UsersMap map = UsersMap.getInstance();
+      //  UsersMap map = UsersMap.getInstance();
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
         if (login != null || password != null ) {
-            if (map.checkPassword(login,password)) {
-                User current_user = map.findUserbyLogin(login);
+            //if (map.checkPassword(login,password)) {
+            User current_user = User.findUserByLoginPassword (login, password);
+            if( current_user != null){
+               // User current_user = map.findUserbyLogin(login);
                 request.getSession().setAttribute("user" ,current_user );
                 userPath = "/news";
             }else{

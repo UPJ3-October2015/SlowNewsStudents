@@ -15,6 +15,10 @@
         <lable id="countNewNews"></lable> newsItem appeared since last page update
       </div>
       <div class="top-menu-left" id="lastnews"></div>
+      <div>
+        <!--input type="text" id="headText">
+        <input type="button" id="newButton" value="sendData"-->
+      </div>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg logo-right-container">
     <h1 class="logo-right">News</h1>
