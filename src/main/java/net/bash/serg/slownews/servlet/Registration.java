@@ -36,22 +36,14 @@ public class Registration extends HttpServlet{
         String email = req.getParameter("email");
         Users user = new Users(login, password, email);
         EntityCreator entityCreator = new EntityCreator();
-        List <SlowNewsEntity> usersList = entityCreator.viewData("SELECT users FROM Users users");
+        List <Users> users = (List <Users>) (Object) entityCreator.viewData("SELECT users FROM Users users where " +
+                "login = '" + login + "'");
 
-        if (usersList != null) {
-            List <Users> users = (List <Users>) (Object) usersList;
-            boolean oldUser = false;
-            for (int i = 0; i < users.size(); i++) {
-                if (users.get(i).getLogin().contains(login)) {
-                    oldUser = true;
+        if (users.size() != 0) {
+                if (users.get(0).getLogin().equals(login)) {
                     context.setAttribute("error", "User with that name already exists!");
                     dispatcherForward(ERROR, req, res);
                 }
-            }
-            if(!oldUser){
-                context.setAttribute("login", login);
-                entityCreator.insertData(user);
-            }
         }
         else {
             entityCreator.insertData(user);

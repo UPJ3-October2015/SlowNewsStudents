@@ -10,7 +10,7 @@
   <div id="templatemo_main">
     <h1>Sign in user</h1>
     <div id="contact_form">
-      <form method="post" action="LoginServlet">
+      <form method="post" action="login">
 
         <label for="login">Login:</label> <input type="text" id="login" name="login" class="required input_field" required />
         <div class="cleaner h10"></div>
