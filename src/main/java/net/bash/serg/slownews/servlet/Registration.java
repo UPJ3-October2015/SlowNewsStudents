@@ -49,7 +49,8 @@ public class Registration extends HttpServlet{
             entityCreator.insertData(user);
             context.setAttribute("login", login);
         }
-          dispatcherForward(BEGIN, req, res);
+        entityCreator.close();
+        dispatcherForward(BEGIN, req, res);
     }
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res)

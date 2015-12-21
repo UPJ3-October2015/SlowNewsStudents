@@ -12,7 +12,8 @@ public class News implements SlowNewsEntity {
     public News(){
     }
 
-    public News(String description, String category, String title, String image, String link) {
+    public News(long userId ,String description, String category, String title, String image, String link) {
+        this.setUserId(userId);
         this.setDescription(description);
         this.setCategory(category);
         this.setTitle(title);
@@ -23,6 +24,9 @@ public class News implements SlowNewsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(length = 500, unique = false, name = "userId")
+    private long userId;
 
     @Column(length = 500, unique = false)
     private String category;
@@ -87,15 +91,11 @@ public class News implements SlowNewsEntity {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "News{" +
-                "id=" + id +
-                ", category='" + category + '\'' +
-                ", title='" + title + '\'' +
-                ", image='" + image + '\'' +
-                ", link='" + link + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 }

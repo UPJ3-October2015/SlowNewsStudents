@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
     @SuppressWarnings("unchecked")
     public void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        HttpSession session = req.getSession();
+        ServletContext context = getServletContext();
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         EntityCreator entityCreator = new EntityCreator();
@@ -41,20 +41,21 @@ public class Login extends HttpServlet {
         if(users.size() != 0) {
             if (users.get(0).getLogin().equals(login) &&
                 users.get(0).getPassword().equals(password)) {
-                session.setAttribute("login", login);
+                context.setAttribute("login", login);
                 dispatcherForward(BEGIN, req, res);
             }
 
             else if(!users.get(0).getLogin().equals(login) ||
                     !users.get(0).getPassword().equals(password)){
-                session.setAttribute("error",  "Login and password not match!");
+                context.setAttribute("error",  "Login and password not match!");
                 dispatcherForward(ERROR, req, res);
             }
         }
         else {
-            session.setAttribute("error",  "Login " + login + " not registered!");
+            context.setAttribute("error",  "Login " + login + " not registered!");
             dispatcherForward(ERROR, req, res);
         }
+        entityCreator.close();
     }
 
     @Override
