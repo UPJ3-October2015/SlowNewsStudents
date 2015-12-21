@@ -35,9 +35,10 @@ public class Archive extends HttpServlet {
 
         if (users.size() != 0) {
             List <News> news = (List<News>) (Object) entityCreator.viewData
-                    ("SELECT news FROM News news where userId = '" + users.get(0).getId() + "'");
+                    ("SELECT news FROM News news where userid = '" + users.get(0).getId() + "'");
 
             ArrayList list = new ArrayList();
+
             for (int i = 0; i < news.size(); i++) {
                 Map items = new HashMap();
                 items.put("category", news.get(i).getCategory());
@@ -48,7 +49,8 @@ public class Archive extends HttpServlet {
                 list.add(items);
             }
             entityCreator.close();
-
+            ServletContext  servletContext = getServletContext();
+            servletContext.setAttribute("archiveList", list);
             RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
             dispatcher.forward(req, res);
         }
@@ -63,12 +65,13 @@ public class Archive extends HttpServlet {
                 ("SELECT users FROM Users users where login = '" + application.getAttribute("login") + "'");
 
         if(users.size() != 0) {
+           List <HashMap> items = (List<HashMap>) application.getAttribute("list");
             News news = new News(users.get(0).getId(),
-                    (String) application.getAttribute("description"),
-                    (String) application.getAttribute("category"),
-                    (String) application.getAttribute("title"),
-                    (String) application.getAttribute("image"),
-                    (String) application.getAttribute("link"));
+                    (String) items.get(0).get("category"),
+                    (String) items.get(0).get("title"),
+                    (String) items.get(0).get("description"),
+                    (String) items.get(0).get("image"),
+                    (String) items.get(0).get("link"));
             entityCreator.insertData(news);
             entityCreator.close();
         }
