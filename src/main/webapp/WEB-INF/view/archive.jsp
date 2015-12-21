@@ -23,7 +23,6 @@
                     <div class="post_text">
                         <p>${current.description}</p>
                         <a href="${current.link}" class="more">More</a>
-                        <c:if test="${login != null || login != ''}"><a href="archive" class="more">To archive</a></c:if>
                     </div>
                 </div>
                 <div class="cleaner"></div>
