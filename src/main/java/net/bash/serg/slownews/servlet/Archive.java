@@ -52,7 +52,7 @@ public class Archive extends HttpServlet {
             entityCreator.close();
             ServletContext  servletContext = getServletContext();
             servletContext.setAttribute("archiveList", list);
-            RequestDispatcher dispatcher = application.getRequestDispatcher(NEWS);
+            RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
             dispatcher.forward(req, res);
         }
     }
@@ -67,17 +67,16 @@ public class Archive extends HttpServlet {
                 ("SELECT users FROM Users users where login = '" + application.getAttribute("login") + "'");
 
         if(users.size() != 0) {
-           List <HashMap> items = (List <HashMap>) application.getAttribute("list");
             News news = new News(users.get(0).getId(),
-                    (String) items.get(0).get("category"),
-                    (String) items.get(0).get("title"),
-                    (String) items.get(0).get("description"),
-                    (String) items.get(0).get("image"),
-                    (String) items.get(0).get("link"));
+                    req.getParameter("category"),
+                    req.getParameter("title"),
+                    req.getParameter("description"),
+                    req.getParameter("image"),
+                    req.getParameter("link"));
             entityCreator.insertData(news);
         }
         entityCreator.close();
-        RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
+        RequestDispatcher dispatcher = application.getRequestDispatcher(NEWS);
         dispatcher.forward(req, res);
     }
 }
