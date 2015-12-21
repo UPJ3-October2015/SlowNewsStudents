@@ -30,25 +30,27 @@ public class Archive extends HttpServlet {
             throws ServletException, IOException {
         ServletContext application = getServletContext();
         EntityCreator entityCreator = new EntityCreator();
-        List <Users> users = (List <Users>) (Object) entityCreator.viewData
+        List <Users> users = (List<Users>) (Object) entityCreator.viewData
                 ("SELECT users FROM Users users where login = '" + application.getAttribute("login") + "'");
 
-        List <News> news = (List <News>) (Object) entityCreator.viewData
-                ("SELECT news FROM News news where userId = '" + users.get(0).getId() + "'");
+        if (users.size() != 0) {
+            List <News> news = (List<News>) (Object) entityCreator.viewData
+                    ("SELECT news FROM News news where userId = '" + users.get(0).getId() + "'");
 
-        ArrayList list = new ArrayList();
-        for(int i = 0; i < news.size(); i++) {
-            Map items = new HashMap();
-            items.put("category", news.get(i).getCategory());
-            items.put("title", news.get(i).getTitle());
-            items.put("description", news.get(i).getDescription());
-            items.put("image", news.get(i).getImage());
-            items.put("link", news.get(i).getLink());
-            list.add(items);
+            ArrayList list = new ArrayList();
+            for (int i = 0; i < news.size(); i++) {
+                Map items = new HashMap();
+                items.put("category", news.get(i).getCategory());
+                items.put("title", news.get(i).getTitle());
+                items.put("description", news.get(i).getDescription());
+                items.put("image", news.get(i).getImage());
+                items.put("link", news.get(i).getLink());
+                list.add(items);
+            }
+            entityCreator.close();
+            RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
+            dispatcher.forward(req, res);
         }
-        entityCreator.close();
-        RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
-        dispatcher.forward(req, res);
     }
 
     @Override
