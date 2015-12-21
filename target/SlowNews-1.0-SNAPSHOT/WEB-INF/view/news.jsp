@@ -25,6 +25,11 @@
                         <a href="${current.link}" class="more">More</a>
                         <c:if test="${login != null || login != ''}">
                             <form action="archive" method="post">
+                                <input type="text" name="category" hidden="true" value="${current.category}"/>
+                                <input type="text" name="title" hidden="true" value="${current.title}"/>
+                                <input type="text" name="description" hidden="true" value="${current.description}"/>
+                                <input type="text" name="image" hidden="true" value="${current.image}"/>
+                                <input type="text" name="link" hidden="true" value="${current.link}"/>
                                 <input type="submit" value="To archive"/>
                             </form>
                         </c:if>
