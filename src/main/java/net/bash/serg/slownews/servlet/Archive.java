@@ -61,7 +61,7 @@ public class Archive extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-        res.setContentType("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         ServletContext application = getServletContext();
         EntityCreator entityCreator = new EntityCreator();
         List <Users> users = (List <Users>) (Object) entityCreator.viewData
@@ -76,6 +76,7 @@ public class Archive extends HttpServlet {
                     req.getParameter("link"));
             entityCreator.insertData(news);
         }
+        System.out.println(req.getParameter("description"));
         entityCreator.close();
         RequestDispatcher dispatcher = application.getRequestDispatcher(NEWS);
         dispatcher.forward(req, res);
