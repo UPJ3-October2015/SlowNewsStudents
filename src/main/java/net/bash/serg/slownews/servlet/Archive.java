@@ -76,7 +76,6 @@ public class Archive extends HttpServlet {
                     req.getParameter("link"));
             entityCreator.insertData(news);
         }
-        System.out.println(req.getParameter("description"));
         entityCreator.close();
         RequestDispatcher dispatcher = application.getRequestDispatcher(NEWS);
         dispatcher.forward(req, res);
