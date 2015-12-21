@@ -1,7 +1,6 @@
-package com.infopuls.tash.controllers;
+package com.infopuls.tash.slownews.controllers;
 
-import com.infopuls.tash.user.UsersMap;
-import com.infopuls.tash.ws.Weather;
+import com.infopuls.tash.slownews.ws.Weather;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

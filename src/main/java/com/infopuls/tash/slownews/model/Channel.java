@@ -1,4 +1,4 @@
-package com.infopuls.tash.news;
+package com.infopuls.tash.slownews.model;
 
 import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
 import org.eclipse.persistence.jaxb.JAXBContextFactory;

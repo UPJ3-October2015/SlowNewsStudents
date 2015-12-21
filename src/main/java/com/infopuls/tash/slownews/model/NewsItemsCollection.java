@@ -1,6 +1,6 @@
-package com.infopuls.tash.news;
+package com.infopuls.tash.slownews.model;
 
-import  com.infopuls.tash.news.Channel;
+import com.infopuls.tash.slownews.model.Channel;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;

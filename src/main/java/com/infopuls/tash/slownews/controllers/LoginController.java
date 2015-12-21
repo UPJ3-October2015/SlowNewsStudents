@@ -1,7 +1,7 @@
-package com.infopuls.tash.controllers;
+package com.infopuls.tash.slownews.controllers;
 
-import com.infopuls.tash.user.User;
-import com.infopuls.tash.user.UsersMap;
+import com.infopuls.tash.slownews.dao.UserDao;
+import com.infopuls.tash.slownews.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,16 +30,13 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userPath = null;
-      //  UsersMap map = UsersMap.getInstance();
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
         if (login != null || password != null ) {
-            //if (map.checkPassword(login,password)) {
-            User current_user = User.findUserByLoginPassword (login, password);
+            User current_user = new UserDao().findUserByLoginPassword(login, password);
             if( current_user != null){
-               // User current_user = map.findUserbyLogin(login);
                 request.getSession().setAttribute("user" ,current_user );
                 userPath = "/news";
             }else{

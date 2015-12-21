@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%--<jsp:useBean id="newsItem" scope="application" class="com.infopuls.tash.news.NewsItem" />--%>
-<jsp:useBean id="newsList" scope="application" class="com.infopuls.tash.news.NewsItemsCollection" />
+<jsp:useBean id="newsList" scope="application" class="com.infopuls.tash.slownews.model.NewsItemsCollection" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>

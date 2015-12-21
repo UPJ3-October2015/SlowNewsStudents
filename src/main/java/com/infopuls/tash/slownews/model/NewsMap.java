@@ -1,6 +1,6 @@
-package com.infopuls.tash.news;
+package com.infopuls.tash.slownews.model;
 
-import com.infopuls.tash.user.User;
+import com.infopuls.tash.slownews.entity.User;
 
 import java.util.Map;
 

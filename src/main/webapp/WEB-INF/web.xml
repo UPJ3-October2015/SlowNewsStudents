@@ -5,24 +5,28 @@
          version="3.1">
     <servlet>
         <servlet-name>MainController</servlet-name>
-        <servlet-class>com.infopuls.tash.controllers.MainController</servlet-class>
+        <servlet-class>com.infopuls.tash.slownews.controllers.MainController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>com.infopuls.tash.controllers.LoginController</servlet-class>
+        <servlet-class>com.infopuls.tash.slownews.controllers.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegistrationController</servlet-name>
-        <servlet-class>com.infopuls.tash.controllers.RegistrationController</servlet-class>
+        <servlet-class>com.infopuls.tash.slownews.controllers.RegistrationController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>NewsController</servlet-name>
-        <servlet-class>com.infopuls.tash.controllers.NewsController</servlet-class>
+        <servlet-class>com.infopuls.tash.slownews.controllers.NewsController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ArchiveNewsController</servlet-name>
-        <servlet-class>com.infopuls.tash.controllers.ArchiveNewsController</servlet-class>
+        <servlet-class>com.infopuls.tash.slownews.controllers.ArchiveNewsController</servlet-class>
     </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>LastNewsController</servlet-name>-->
+        <!--<servlet-class>com.infopuls.tash.controllers.LastNewsController</servlet-class>-->
+    <!--</servlet>-->
 
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -44,20 +48,11 @@
         <servlet-name>ArchiveNewsController</servlet-name>
         <url-pattern>/archive</url-pattern>
     </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>LastNewsController</servlet-name>-->
+        <!--<url-pattern>/lastNews</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!--<jsp-config>-->
-    <!--<taglib>-->
-    <!--<taglib-uri>/jstl-core</taglib-uri>-->
-    <!--<taglib-location>/WEB-INF/tld/c.tld</taglib-location>-->
-    <!--</taglib>-->
-    <!--<taglib>-->
-    <!--<taglib-uri>/jstl-format</taglib-uri>-->
-    <!--<taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>-->
-    <!--</taglib>-->
-    <!--<taglib>-->
-    <!--<taglib-uri>/jstl-xml</taglib-uri>-->
-    <!--<taglib-location>/WEB-INF/tld/x.tld</taglib-location>-->
-    <!--</taglib>-->
-    <!--</jsp-config>-->
+
 
 </web-app>

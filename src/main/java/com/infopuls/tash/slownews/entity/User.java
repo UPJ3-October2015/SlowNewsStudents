@@ -1,6 +1,6 @@
-package com.infopuls.tash.user;
+package com.infopuls.tash.slownews.entity;
 
-import com.infopuls.tash.entity.EntityManagerProcess;
+import com.infopuls.tash.slownews.dao.UserDao;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,7 +15,6 @@ public class User {
     private String lastName;
     private String email;
     private String phoneNumber;
-    // private final Map <String, Map<String , Object> > userMap = new HashMap<>();
 
     public User() {
     }
@@ -25,31 +24,6 @@ public class User {
         this.password = password;
     }
 
-    public static User findUserByLogin (String login) {
-        String query = "SELECT c FROM User c WHERE c.login = '"+ login+"'";
-
-        List<Object>  userList =   EntityManagerProcess.findEntity(query, User.class);
-        if (userList.isEmpty()){
-            return null;
-        }else {
-           return  (User)userList.get(0);
-        }
-    }
-
-    public static User findUserByLoginPassword (String login, String password) {
-        String query = "SELECT c FROM User c WHERE c.login = '"+ login+"' and c.password = '" +password+ "'";
-
-        List<Object>  userList =   EntityManagerProcess.findEntity(query, User.class);
-        if (userList.isEmpty()){
-            return null;
-        }else {
-            return  (User)userList.get(0);
-        }
-    }
-
-    public static void addUser (User u) {
-        EntityManagerProcess.addEntity(u);
-    }
     @Column(name = "LOGIN")
     public String getLogin() {
         return login;

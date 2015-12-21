@@ -1,4 +1,4 @@
-package com.infopuls.tash.controllers;
+package com.infopuls.tash.slownews.controllers;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

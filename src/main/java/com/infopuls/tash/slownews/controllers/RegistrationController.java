@@ -1,7 +1,7 @@
-package com.infopuls.tash.controllers;
+package com.infopuls.tash.slownews.controllers;
 
-import com.infopuls.tash.user.User;
-import com.infopuls.tash.user.UsersMap;
+import com.infopuls.tash.slownews.dao.UserDao;
+import com.infopuls.tash.slownews.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,8 +48,7 @@ public class RegistrationController  extends HttpServlet {
             request.setAttribute("errorText", "Password does not match with confirm password");
         }else {
 
-            //if (map.isExistLogin(login)) {
-            if (User.findUserByLogin(login)!= null) {
+            if (new UserDao().findUserByLogin(login)!= null) {
                 userPath = "/registration";
                 request.setAttribute("errorText", "Unfortunately, this username is not available");
             } else {
@@ -59,8 +58,7 @@ public class RegistrationController  extends HttpServlet {
                 current_user.setLastName(last_name);
                 current_user.setPhoneNumber(phoneNumber);
 
-                //map.addUser(current_user);
-                User.addUser(current_user);
+                new UserDao().addUser(current_user);
                 request.getSession().setAttribute("user" ,current_user );
                 userPath = "/news";
             }

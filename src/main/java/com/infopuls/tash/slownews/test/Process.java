@@ -1,4 +1,4 @@
-package com.infopuls.tash.test;
+package com.infopuls.tash.slownews.test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

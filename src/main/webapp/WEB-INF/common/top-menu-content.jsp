@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="user" scope="session" class="com.infopuls.tash.user.User" />
-<jsp:useBean id="weather" scope="application" class="com.infopuls.tash.ws.Weather" />
+<jsp:useBean id="user" scope="session" class="com.infopuls.tash.slownews.entity.User" />
+<jsp:useBean id="weather" scope="application" class="com.infopuls.tash.slownews.ws.Weather" />
 
 
 <div class="templatemo-logo "> <!--visible-xs-block-->

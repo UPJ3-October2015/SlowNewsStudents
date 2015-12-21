@@ -1,4 +1,4 @@
-package com.infopuls.tash.ws;
+package com.infopuls.tash.slownews.ws;
 
 import java.util.Map;
 

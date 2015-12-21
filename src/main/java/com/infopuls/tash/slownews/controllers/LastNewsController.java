@@ -1,7 +1,7 @@
-package com.infopuls.tash.controllers;
+package com.infopuls.tash.slownews.controllers;
 
-import com.infopuls.tash.news.NewsItem;
-import com.infopuls.tash.news.NewsItemsCollection;
+import com.infopuls.tash.slownews.model.NewsItem;
+import com.infopuls.tash.slownews.model.NewsItemsCollection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
