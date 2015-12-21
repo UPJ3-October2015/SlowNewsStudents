@@ -8,7 +8,7 @@
 
     <div id="templatemo_main">
 
-        <c:forEach items="${list}" var="current">
+        <c:forEach items="${archiveList}" var="current">
             <div class="post_box">
                 <h2>${current.title}</h2>
                 <div class="post_meta">

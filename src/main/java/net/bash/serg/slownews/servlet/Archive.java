@@ -48,6 +48,7 @@ public class Archive extends HttpServlet {
                 list.add(items);
             }
             entityCreator.close();
+
             RequestDispatcher dispatcher = application.getRequestDispatcher(BEGIN);
             dispatcher.forward(req, res);
         }

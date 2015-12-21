@@ -53,7 +53,7 @@ public class News extends HttpServlet{
             }
              xml.close();
             ServletContext  servletContext = getServletContext();
-            servletContext.setAttribute("list", list);
+            servletContext.setAttribute("archiveList", list);
         }
         catch(JAXBException e){
              System.out.println(e.getMessage());
