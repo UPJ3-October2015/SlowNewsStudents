@@ -12,7 +12,7 @@
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
         <div class="tm-left-inner-container">
             <ul class="nav nav-stacked templatemo-nav">
-                <li><a href="newsItem" >News</a></li>
+                <li><a href="news" >News</a></li>
                 <li><a href="archive" class="active">Archive</a></li>
             </ul>
         </div>

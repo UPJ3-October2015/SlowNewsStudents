@@ -1,10 +1,11 @@
 package com.infopuls.tash.slownews.dao;
 
+import com.infopuls.tash.slownews.entity.NewsItemEntity;
 import com.infopuls.tash.slownews.entity.UserEntity;
 
 import javax.persistence.*;
 
-public class UserDao {
+public class NewsItemDao {
 
     private static final String PERSISTENT_UNIT_NAME = "item-manager";
     private static final EntityManagerFactory emf;
@@ -18,16 +19,16 @@ public class UserDao {
         }
     }
 
-    public void addUser(UserEntity u) {
+    public void addNewsItem(NewsItemEntity newsItemEntity) {
         EntityManager manager = emf.createEntityManager();
         manager.getTransaction().begin();
-        manager.persist(u);
+        manager.persist(newsItemEntity);
         manager.getTransaction().commit();
     }
 
-    public UserEntity findUserByLogin(String login) {
+ /*   public UserEntity findUserByLogin(String login) {
         try {
-            String queryString = "SELECT c FROM UserEntity c WHERE c.login = '"+ login+"'";
+            String queryString = "SELECT c FROM NewsItemEntity c WHERE c.login = '"+ login+"'";
 
             EntityManager manager = emf.createEntityManager();
             manager.getTransaction().begin();
@@ -44,7 +45,7 @@ public class UserDao {
 
     public UserEntity findUserByLoginPassword(String login , String password) {
         try {
-            String queryString = "SELECT c FROM UserEntity c WHERE c.login = '" + login + "' and c.password = '" + password + "'";
+            String queryString = "SELECT c FROM NewsItemEntity c WHERE c.login = '" + login + "' and c.password = '" + password + "'";
 
             EntityManager manager = emf.createEntityManager();
             manager.getTransaction().begin();
@@ -57,7 +58,7 @@ public class UserDao {
             return null;
         }
 
-    }
+    }*/
 
 
 

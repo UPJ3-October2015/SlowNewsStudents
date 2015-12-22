@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="user" scope="session" class="com.infopuls.tash.slownews.entity.User" />
+<jsp:useBean id="user" scope="session" class="com.infopuls.tash.slownews.entity.UserEntity" />
 <jsp:useBean id="weather" scope="application" class="com.infopuls.tash.slownews.ws.Weather" />
 
 

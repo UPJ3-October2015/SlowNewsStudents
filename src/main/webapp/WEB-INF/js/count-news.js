@@ -53,7 +53,6 @@ function lastNews() {
     req.open('POST', '/LastNews', true);
     req.send(null);
     statusElem.innerHTML = ''
-
     setTimeout("lastNews()", 5000);
 }
 
@@ -73,5 +72,20 @@ function sendData(){
     }).done(function( msg ) {
         alert( "Data Saved: " + msg );
     });
+}
+
+
+function archNews() {
+    var req = getXmlHttp();
+    req.onreadystatechange = function() {;
+        if (req.readyState == 4) {
+            if(req.status == 200) {
+                //statusElem.innerHTML = req.responseText;
+            }
+        }
+    }
+
+    req.open('POST', '/news', true);
+    req.send(null);
 }
 

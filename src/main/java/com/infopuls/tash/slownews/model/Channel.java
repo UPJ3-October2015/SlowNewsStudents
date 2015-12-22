@@ -96,34 +96,6 @@ public class Channel {
     }
 
 
-    public  Channel getChannelByRssUrl (URL rss) {
-        Channel channel = null;
-        try {
-
-            JAXBContext context = JAXBContextFactory.createContext(new Class[]{Channel.class}, null);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-
-            channel = (Channel) unmarshaller.unmarshal(rss);
-            for ( NewsItem item : channel.getItems() ){
-                String imagepath = null;
-                for ( ElementNSImpl elementNSImpl : item.getElements() ){
-                    imagepath =  (imagepath == null || imagepath.equals("") ) ? elementNSImpl.getAttribute("url") : imagepath;
-                    if (imagepath !=null && !imagepath.equals("") ){
-                        item.setImagePath(imagepath);
-                    }
-                }
-            }
-//
-//            Marshaller marshaller = context.createMarshaller();
-//            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-//            marshaller.marshal(channel, System.out);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return channel;
-    }
-
     @Override
     public String toString() {
         return "Channel{" +

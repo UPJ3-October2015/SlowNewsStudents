@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%--<jsp:useBean id="newsItem" scope="application" class="com.infopuls.tash.news.NewsItem" />--%>
-<jsp:useBean id="newsList" scope="application" class="com.infopuls.tash.slownews.model.NewsItemsCollection" />
+<jsp:useBean id="newsItemsCollection" scope="application" class="com.infopuls.tash.slownews.model.NewsItemsCollection" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -13,7 +12,7 @@
   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
     <div class="tm-left-inner-container">
       <ul class="nav nav-stacked templatemo-nav">
-        <li><a href="newsItem" class="active">News</a></li>
+        <li><a href="news" class="active">News</a></li>
         <li><a href="archive">Archive</a></li>
       </ul>
     </div>
@@ -22,9 +21,10 @@
     <div class="tm-right-inner-container">
       <div class="row">
         <div class="col-sm-12 col-md-12">
-          <form action="#" method="post">
-            <c:forEach items="${newsList.newsList}" var="list">
+          <%--<form action="#" method="post">--%>
+            <c:forEach items="${newsItemsCollection.newsList}" var="list">
               <article>
+                 <input type="checkbox" id="toArchive" name="toArchive" value="${list.title}" onclick=archNews() />
                 <h2>
                   <c:out value="${list.title}"/>
                 </h2>
@@ -35,7 +35,7 @@
                 <br/><a href="${list.link}" target="_blank">... more</a>
               </article>
             </c:forEach>
-          </form>
+          <%--</form>--%>
         </div>
         <div class="clearfix"></div>
       </div>

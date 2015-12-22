@@ -1,7 +1,7 @@
 package com.infopuls.tash.slownews.controllers;
 
 import com.infopuls.tash.slownews.dao.UserDao;
-import com.infopuls.tash.slownews.entity.User;
+import com.infopuls.tash.slownews.entity.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
 
         if (login != null || password != null ) {
-            User current_user = new UserDao().findUserByLoginPassword(login, password);
+            UserEntity current_user = new UserDao().findUserByLoginPassword(login, password);
             if( current_user != null){
                 request.getSession().setAttribute("user" ,current_user );
                 userPath = "/news";

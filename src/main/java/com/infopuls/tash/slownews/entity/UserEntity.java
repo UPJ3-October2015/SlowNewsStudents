@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "USERS")
-public class User {
+public class UserEntity {
     private long id;
     private String login;
     private String password;
@@ -16,10 +16,10 @@ public class User {
     private String email;
     private String phoneNumber;
 
-    public User() {
+    public UserEntity() {
     }
 
-    public User(String login, String password) {
+    public UserEntity(String login, String password) {
         this.login = login;
         this.password = password;
     }

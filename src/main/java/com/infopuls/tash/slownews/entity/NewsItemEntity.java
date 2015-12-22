@@ -1,10 +1,14 @@
 package com.infopuls.tash.slownews.entity;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "News")
 public class NewsItemEntity {
 
+    private long id;
     private String title;
     private String link;
     private String description;
@@ -23,6 +27,7 @@ public class NewsItemEntity {
         this.imagePath = imagePath;
     }
 
+    @Column(name = "SOURCE")
     public String getSource() {
         return source;
     }
@@ -31,6 +36,7 @@ public class NewsItemEntity {
         this.source = source;
     }
 
+    @Column(name = "CREATEDDATE")
     public Date getCreatedDate() {
         return createdDate;
     }
@@ -39,6 +45,7 @@ public class NewsItemEntity {
         this.createdDate = createdDate;
     }
 
+    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
@@ -47,6 +54,7 @@ public class NewsItemEntity {
         this.description = description;
     }
 
+    @Column(name = "TITLE")
     public String getTitle() {
         return title;
     }
@@ -55,6 +63,7 @@ public class NewsItemEntity {
         this.title = title;
     }
 
+    @Column(name = "IMAGEPATH")
     public String getImagePath() {
         return imagePath;
     }
@@ -63,6 +72,7 @@ public class NewsItemEntity {
         this.imagePath = imagePath;
     }
 
+    @Column(name = "CATEGORY")
     public String getCategory() {
         return category;
     }
@@ -71,6 +81,7 @@ public class NewsItemEntity {
         this.category = category;
     }
 
+    @Column(name = "AUTHOR")
     public String getAuthor() {
         return author;
     }
@@ -79,6 +90,7 @@ public class NewsItemEntity {
         this.author = author;
     }
 
+    @Column(name = "LINK")
     public String getLink() {
         return link;
     }
@@ -87,14 +99,27 @@ public class NewsItemEntity {
         this.link = link;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "NewsItem{" +
+        return "NewsItemEntity{" +
                 "title='" + title + '\'' +
+                ", link='" + link + '\'' +
                 ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
                 ", category='" + category + '\'' +
+                ", createdDate=" + createdDate +
                 ", imagePath='" + imagePath + '\'' +
+                ", author='" + author + '\'' +
+                ", source='" + source + '\'' +
                 '}';
     }
 }

@@ -1,21 +1,21 @@
 package com.infopuls.tash.slownews.model;
 
-import com.infopuls.tash.slownews.entity.User;
+import com.infopuls.tash.slownews.entity.UserEntity;
 
 import java.util.Map;
 
 public class NewsMap {
-    private Map<User, NewsItem> userNewsMap;
+    private Map<UserEntity, NewsItem> userNewsMap;
 
 
     public NewsMap() {
     }
 
-    public Map<User, NewsItem> getUserNewsMap() {
+    public Map<UserEntity, NewsItem> getUserNewsMap() {
         return userNewsMap;
     }
 
-    public void setUserNewsMap(Map<User, NewsItem> userNewsMap) {
+    public void setUserNewsMap(Map<UserEntity, NewsItem> userNewsMap) {
         this.userNewsMap = userNewsMap;
     }
 

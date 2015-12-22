@@ -5,10 +5,10 @@
 
     <persistence-unit name="item-manager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.infopuls.tash.slownews.test.Cars</class>
-        <class>com.infopuls.tash.slownews.entity.User</class>
-        <properties>
 
+        <class>com.infopuls.tash.slownews.entity.UserEntity</class>
+        <class>com.infopuls.tash.slownews.entity.NewsItemEntity</class>
+        <properties>
             <property name="hibernate.hbm2ddl.auto" value = "update"/>
             <property name="hibernate.show_sql" value = "true"/>
             <property name="hibernate.format_sql" value = "true"/>

@@ -1,7 +1,7 @@
 package com.infopuls.tash.slownews.controllers;
 
 import com.infopuls.tash.slownews.dao.UserDao;
-import com.infopuls.tash.slownews.entity.User;
+import com.infopuls.tash.slownews.entity.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,7 +52,7 @@ public class RegistrationController  extends HttpServlet {
                 userPath = "/registration";
                 request.setAttribute("errorText", "Unfortunately, this username is not available");
             } else {
-                User current_user = new User(login, password);
+                UserEntity current_user = new UserEntity(login, password);
                 current_user.setEmail(email);
                 current_user.setFirstName(first_name);
                 current_user.setLastName(last_name);

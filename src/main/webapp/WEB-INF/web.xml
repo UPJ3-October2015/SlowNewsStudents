@@ -42,7 +42,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NewsController</servlet-name>
-        <url-pattern>/newsItem</url-pattern>
+        <url-pattern>/news</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ArchiveNewsController</servlet-name>
