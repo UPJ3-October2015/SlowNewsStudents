@@ -8,8 +8,9 @@
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>net.bash.serg.slownews.persistence.model.Users</class>
-		<class>net.bash.serg.slownews.persistence.model.News</class>
+		<class>net.bash.serg.slownews.entity.UserEntity</class>
+		<class>net.bash.serg.slownews.entity.NewsEntity</class>
+
 
 		<properties>
 

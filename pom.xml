@@ -13,6 +13,8 @@
         <project.build.mainClass>com.bash.serg.persistenseplayground.Main</project.build.mainClass>
         <project.hibernate.version>4.1.7.Final</project.hibernate.version>
         <postgresql.version>9.3-1102-jdbc41</postgresql.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>

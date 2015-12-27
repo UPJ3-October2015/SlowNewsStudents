@@ -41,7 +41,7 @@
         </c:when>
         <c:otherwise>
           You login as <b>${login}</b>
-         <br><a href="logout">Logout</a>
+         <a href="logout" style="float: right">Logout</a>
         </c:otherwise>
       </c:choose>
     </form>

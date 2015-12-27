@@ -12,11 +12,15 @@
 
         <div id="templatemo_main">
         <div class="col_2 float_l">
-            <h2>Dear <c:if  test="${login != null && login != ''}">
-                       ${login}!
-                     </c:if>
-                Welcome To Slow News
-            </h2>
+            <c:choose>
+                <c:when test="${login == null || login == ''}">
+                    <h2>  Welcome To Slow News </h2>
+                </c:when>
+                <c:otherwise>
+                    <h2>Dear ${login}, welcome again to Slow News!</h2>
+                </c:otherwise>
+            </c:choose>
+
             <br class="cleaner h20" />
             <p><em>Sed mollis leo nec est tempor interdum et vulputate orci. Integer in erat nibh, nec volutpat nunc. Aliquam in congue ligula.</em></p>
             <p><a href="http://github.com/basoy" target="_parent">Slow News</a> is  free css template provided by <a href="http://github.com/basoy">templatemo.com</a> for your personal or commercial websites. Credit for Nivo Slider goes to <a href="http://nivo.dev7studios.com" target="_blank">Dev7studios</a>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porta, sem vitae lacinia convallis, eros sapien euismod metus, quis ultricies arcu neque eu elit. Nam vel pellentesque nunc.</p>
