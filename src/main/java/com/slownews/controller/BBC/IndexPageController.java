@@ -27,6 +27,9 @@ public class IndexPageController extends HttpServlet {
         System.out.println(request.toString());
 
         ServletContext context = request.getSession().getServletContext();
+        Map<String, User> users = null;
+        Object obj = context.getAttribute("users");
+        
         context.setAttribute("users", users);
 
         WeatherForecastImpl weatherForecast = new WeatherForecastImpl();
@@ -61,14 +64,5 @@ public class IndexPageController extends HttpServlet {
     }
 
     Map<String, User> users;
-
-    @Override
-    public void init() {
-        users = new HashMap<>();
-        User user = new User();
-        user.setUsername("admin");
-        user.setPassword("1234");
-        users.put(user.getUsername(), user);
-    }
 
 }
