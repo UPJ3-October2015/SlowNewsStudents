@@ -1,85 +1,58 @@
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>SlowChat</title>
+    <title>SlowNews</title>
     <meta charset="utf-8">
-    <link href="css/main_pg.css" rel="stylesheet" type="text/css">
+    <link href="css/archive.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="images/favicon.png"/>
 </head>
 
 <body>
-<div id="page_align">
+<div id="page_align" class="page_align">
 
-    <div id="sidebar">
-
+    <div id="sidebar" class="sidebar">
         <a href="IndexPageController">
 
-            <div id="logo_side_bar">
+            <div id="logo_side_bar" class="logo_side_bar">
                 <img src="images/logo.jpg">
             </div>
 
         </a>
 
-        <div id="left_navigation">
+        <div id="left_navigation" class="left_navigation">
             <jsp:include page="includeLeftNavigation.jsp"/>
         </div>
 
-
-        <div id="left_content">
-            <jsp:include page="includeLeftContent.jsp"/>
-        </div>
-
-        <div id="left_content2">
-            <jsp:include page="includeLeftContent2.jsp"/>
+        <div id="left_content2" class="left_content2">
+            <jsp:include page="includeWeatherForecast.jsp"/>
         </div>
 
     </div>
 
-    <div id="top_menu">
-        <jsp:include page="includeMenu.jsp"/>
-        <div id="user_login">
-            Welcome, ${username}!
-        </div>
+    <div id="top_menu" class="top_menu">
+        <jsp:include page="includeTopMenu.jsp"/>
+        <c:if test="${not empty username}">
+            <div id="user_login" class="user_login">
+                Welcome, ${username}! You can <a href="LogoutController" class="top_menu_logout_a">logout</a>
+            </div>
+        </c:if>
     </div>
 
+    <div id="content" class="content">
 
-    <div id="content">
+        Now avaliable archives of next resources:
 
-
-        <!--<h1>Investigate world with us!</h1>-->
-
-        12.10.15 <a href=".html">Developers weigh JSON, security proposals for Java EE 8</a>
-        <br>
-        05.05.15 <a href=".html">Oracle lays out plans for the next Java generation</a>
-        <br>
-        14.12.15 <a href=".html">Java developers carry hopes and fears to JavaOne</a>
-        <br>
-        27.01.15 <a href=".html">Oracle fixes critical flaws in Database Server, MySQL, Java</a>
-        <br>
-        30.06.15 <a href=".html">Word to API providers: Make it simple for developers</a>
-        <br>
-        08.11.15 <a href=".html">Oracle considers a new effort to develop mobile Java apps</a>
-        <br>
-        12.10.15 <a href=".html">Developers weigh JSON, security proposals for Java EE 8</a>
-        <br>
-        05.05.15 <a href=".html">Oracle lays out plans for the next Java generation</a>
-        <br>
-        14.12.15 <a href=".html">Java developers carry hopes and fears to JavaOne</a>
-        <br>
-        27.01.15 <a href=".html">Oracle fixes critical flaws in Database Server, MySQL, Java</a>
-        <br>
-        30.06.15 <a href=".html">Word to API providers: Make it simple for developers</a>
-        <br>
-        08.11.15 <a href=".html">Oracle considers a new effort to develop mobile Java apps</a>
-        <br>
-
+        <ul>
+            <li><a href="/BBCArchivePageController">BBC World</a></li>
+            <li><a href="/HabrahabrArchivePageController">Habrahabr</a></li>
+            <li><a href="/JavaWorldArchivePageController">Java World</a></li>
+        </ul>
 
     </div>
-
 
 </div>
-
 
 <div id="clr"></div>
 </div>

@@ -11,88 +11,73 @@
     <title>SlowChat</title>
     <meta charset="utf-8">
     <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 
 <body>
 
-<div id="page_align">
+<div id="page_align" class="page_align">
 
-    <div id="sidebar">
+    <div id="sidebar" class="sidebar">
 
         <a href="IndexPageController">
 
-            <div id="logo_side_bar">
+            <div id="logo_side_bar" class="logo_side_bar">
                 <img src="images/logo.jpg">
             </div>
 
         </a>
 
-        <div id="left_navigation">
+        <div id="left_navigation" class="left_navigation">
             <jsp:include page="includeLeftNavigation.jsp"/>
         </div>
 
-        <div id="left_content">
-            <jsp:include page="includeLeftContent.jsp"/>
-        </div>
-
-        <div id="left_content2">
-            <jsp:include page="includeLeftContent2.jsp"/>
+        <div id="left_content2" class="left_content2">
+            <jsp:include page="includeWeatherForecast.jsp"/>
         </div>
 
     </div>
 
-    <div id="top_menu">
-        <jsp:include page="includeMenu.jsp"/>
+    <div id="top_menu" class="top_menu">
+
+        <jsp:include page="includeTopMenu.jsp"/>
+
         <c:if test="${not empty username}">
-            <div id="user_login">
-                Welcome, ${username}!
+            <div id="user_login" class="user_login">
+                Welcome, ${username}! You can <a href="LogoutController" class="top_menu_logout_a">logout</a>
             </div>
         </c:if>
+
     </div>
 
+    <div id="content" class="content">
 
-    <div id="content">
+        <div id="login" class="login">
 
-        <div id="login">
-            <%-- <h1>Login form</h1>
-             <p>Enter your login: </p>
-             <input type="text" size="40">
-             <p>Enter your password: </p>
-             <input type="text" size="40">
-             <br>
-             <button>Login</button>
-             <br>
-             <a href=".html">Registration</a>
-             <br>
-             <a href=".html">Forgot your password ?</a>
- --%>
-            <h1>Login form</h1>
+            <h1 class="h1">Login form</h1>
 
 
+            <form action="LoginController" method="post" class="login_form">
+                <br>
 
-                <form action="LoginController" method="post">
+                <p class="login_p">Enter your login: </p>
+                <br>
+                <input type="text" name="username" class="login_form_input">
+                <br>
 
-                        <p>Enter your login: </p>
-                        <br>
-                        <input type="text" name="username">
-                        <br>
+                <p class="login_p">Enter your password: </p>
+                <br>
+                <input type="password" name="password" class="login_form_input">
+                <br>
+                <input type="submit" value="Login" name="button" class="button">
 
-                        <p>Enter your password: </p>
-                        <br>
-                        <input type="password" name="password">
-                        <br>
-                        <input type="submit" value="Login" name="button">
-
-                </form>
-
+            </form>
 
         </div>
 
     </div>
 
-
 </div>
-
 
 <div id="clr"></div>
 </div>
