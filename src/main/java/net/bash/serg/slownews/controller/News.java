@@ -15,10 +15,12 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by bso05702 on 18.11.2015.
@@ -60,5 +62,24 @@ public class News extends HttpServlet{
              LOGGER.error(e.getMessage());
         }
         dispatcher.forward(req, res);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+       res.setContentType("text/html;charset=UTF-8");
+       PrintWriter p = res.getWriter();
+        try {
+            JAXBContext context  = JAXBContextFactory.createContext(new Class[]{net.bash.serg.slownews.moxy.News.class}, null);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            URL xmlURL = new URL("https://news.mail.ru/rss/ukraine/");
+            InputStream xml = xmlURL.openStream();
+            net.bash.serg.slownews.moxy.News news = (net.bash.serg.slownews.moxy.News) unmarshaller.unmarshal(xml);
+            Random random = new Random();
+            p.println(news.getTitle().get(random.nextInt((news.getTitle().size() -1 - 0) + 1) + 0));
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
     }
 }
