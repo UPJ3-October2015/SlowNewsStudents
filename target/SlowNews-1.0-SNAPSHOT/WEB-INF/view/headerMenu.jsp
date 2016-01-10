@@ -36,7 +36,6 @@
     }
     setInterval(nested, 5000);
   }
-
 </script>
 <body onload="checkNews(), popupNews()">
 <div id="templatemo_header">

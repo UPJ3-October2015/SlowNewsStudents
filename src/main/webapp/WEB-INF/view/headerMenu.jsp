@@ -10,7 +10,6 @@
 <html>
 
 <script type="text/javascript">
-
   function checkNews(){
     var random = Math.random() * (99 - 1) + 1;
     function nested() {
