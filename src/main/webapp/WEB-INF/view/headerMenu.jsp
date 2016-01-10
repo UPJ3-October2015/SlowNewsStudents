@@ -45,7 +45,7 @@
   </div>
   <div id="templatemo_search">
     с последнего обновления страницы появилось <a href="NewsServlet" id="countNews"></a> новостей
-    <br><div id="popupNews"></div>
+    <br><b><div id="popupNews"></div></b>
     <form action="#" method="get">
       <input type="text" value="Search" name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
       <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" class="sub_btn"  /><br><br>
@@ -55,7 +55,7 @@
         </c:when>
         <c:otherwise>
           You login as <b>${login}</b>
-         <a href="logout" style="float: right">Logout</a>
+         <a href="logout" style="float: right;color: cornsilk">Logout</a>
         </c:otherwise>
       </c:choose>
     </form>

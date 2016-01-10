@@ -23,15 +23,29 @@
     setInterval(nested, Math.random() * (random - 1) + 1);
     }
 
+  function popupNews(){
+    function nested() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/news', false);
+      xhr.send();
+      if (xhr.status != 200) {
+        alert( xhr.status + ': ' + xhr.statusText );
+      } else {
+        document.getElementById("popupNews").innerHTML = xhr.responseText;
+      }
+    }
+    setInterval(nested, 5000);
+  }
 
 </script>
-<body onload="checkNews()">
+<body onload="checkNews(), popupNews()">
 <div id="templatemo_header">
   <div id="site_title">
     <h1><a href="http://github.com/basoy">by Serg Bash</a></h1>
   </div>
   <div id="templatemo_search">
     с последнего обновления страницы появилось <a href="NewsServlet" id="countNews"></a> новостей
+    <br><b><div id="popupNews"></div></b>
     <form action="#" method="get">
       <input type="text" value="Search" name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
       <input type="submit" name="Search" value="" alt="Search" id="searchbutton" title="Search" class="sub_btn"  /><br><br>
@@ -41,7 +55,7 @@
         </c:when>
         <c:otherwise>
           You login as <b>${login}</b>
-         <a href="logout" style="float: right">Logout</a>
+         <a href="logout" style="float: right;color: cornsilk">Logout</a>
         </c:otherwise>
       </c:choose>
     </form>
