@@ -1,1 +1,1 @@
-There is no light. Electricity is not working:) 
+There is no light. Electricity was cut off:) 
